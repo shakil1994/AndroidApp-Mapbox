@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
     xmlns:mapbox="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity">
 
@@ -14,6 +13,12 @@
         android:layout_height="match_parent"
         mapbox:mapbox_cameraTargetLat="23.7501"
         mapbox:mapbox_cameraTargetLng="90.4130"
-        mapbox:mapbox_cameraZoom="12" />
+        mapbox:mapbox_cameraZoom="12"
+        mapbox:mapbox_styleUrl="mapbox://styles/mapbox/streets-v10"/>
+
+    <!--mapbox:mapbox_styleUrl="mapbox://styles/mapbox/streets-v10-->
+    <!--mapbox:mapbox_styleUrl="mapbox://styles/mapbox/dark-v9"-->
+    <!--mapbox:mapbox_styleUrl="mapbox://styles/mapbox/traffic-day-v2"-->
+    <!--mapbox:mapbox_styleUrl="mapbox://styles/mapbox/traffic-night-v2"-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

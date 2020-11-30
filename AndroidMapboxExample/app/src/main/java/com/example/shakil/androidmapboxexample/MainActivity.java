@@ -6,7 +6,6 @@ import android.os.Bundle;
 
 import com.mapbox.mapboxsdk.Mapbox;
 import com.mapbox.mapboxsdk.maps.MapView;
-import com.mapbox.mapboxsdk.maps.Style;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,12 +19,12 @@ public class MainActivity extends AppCompatActivity {
         mapView = findViewById(R.id.mapView);
         mapView.onCreate(savedInstanceState);
 
-        mapView.getMapAsync(mapboxMap -> mapboxMap.setStyle(Style.MAPBOX_STREETS, style -> {
+        /*mapView.getMapAsync(mapboxMap -> mapboxMap.setStyle(Style.MAPBOX_STREETS, style -> {
 
             // Map is set up and the style has loaded. Now you can add data or make other map adjustments
 
 
-        }));
+        }));*/
     }
 
     @Override
