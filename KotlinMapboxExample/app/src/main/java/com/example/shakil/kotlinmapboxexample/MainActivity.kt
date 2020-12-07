@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import com.mapbox.android.core.permissions.PermissionsListener
 import com.mapbox.android.core.permissions.PermissionsManager
@@ -23,6 +24,8 @@ import com.mapbox.mapboxsdk.maps.Style
 import com.mapbox.mapboxsdk.style.layers.PropertyFactory
 import com.mapbox.mapboxsdk.style.layers.SymbolLayer
 import com.mapbox.mapboxsdk.style.sources.GeoJsonSource
+import com.mapbox.services.android.navigation.ui.v5.NavigationLauncher
+import com.mapbox.services.android.navigation.ui.v5.NavigationLauncherOptions
 import com.mapbox.services.android.navigation.ui.v5.route.NavigationMapRoute
 import com.mapbox.services.android.navigation.v5.navigation.NavigationRoute
 import kotlinx.android.synthetic.main.activity_main.*
@@ -45,6 +48,17 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback, PermissionsListene
         setContentView(R.layout.activity_main)
         mapView.onCreate(savedInstanceState)
         mapView.getMapAsync(this)
+
+        btnStart.setOnClickListener { v: View? ->
+            val simulateRoute = true
+            val options = NavigationLauncherOptions.builder()
+                    .directionsRoute(currentRoute)
+                    .shouldSimulateRoute(simulateRoute)
+                    .build()
+
+            // Call this method with Context from within an Activity
+            NavigationLauncher.startNavigation(this, options)
+        }
     }
 
     override fun onMapReady(mapboxMap: MapboxMap) {
@@ -78,6 +92,8 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback, PermissionsListene
         source?.setGeoJson(Feature.fromGeometry(destinationPoint))
 
         getRoute(originPoint, destinationPoint)
+        btnStart!!.isEnabled = true
+        btnStart!!.setBackgroundResource(R.color.mapboxBlue)
         return true
     }
 
