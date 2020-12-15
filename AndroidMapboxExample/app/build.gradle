@@ -45,4 +45,8 @@ dependencies {
     implementation 'com.mapbox.mapboxsdk:mapbox-android-navigation-ui:0.42.6'
     //implementation 'com.mapbox.navigator:mapbox-navigation-native:7.0.0'
     implementation 'com.mapbox.mapboxsdk:mapbox-android-navigation:0.42.6'
+
+    implementation 'com.google.android.material:material:1.2.1'
+
+    implementation 'com.mapbox.mapboxsdk:mapbox-android-plugin-places-v9:0.12.0'
 }
